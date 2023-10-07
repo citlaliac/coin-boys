@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "coin-boys",
+    "slug": "coin-boys",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "coin-boys"
+}
