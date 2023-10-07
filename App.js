@@ -1,12 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View, Alert, Image } from 'react-native';
+import CountMeButton from './components/CountMeButton';
+import CoinDisplay from './components/CoinDisplay';
+
 
 export default function App() {
+const pressedCount = 0;
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app! Poo poo pee pee!</Text>
+      <CoinDisplay/>
+      <Text >Hewwo Wowd</Text>
       <StatusBar style="auto" />
+
+      <Button
+      title='Test'
+      onPress={() => Alert.alert('Simple Button pressed')}
+      />
+      <CountMeButton/>
+
     </View>
   );
 }
@@ -14,9 +27,13 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'whiet',
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+  text: {
+    color: 'green'
+  }
 });
 
