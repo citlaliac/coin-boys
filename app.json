@@ -5,7 +5,13 @@
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "254904f1-e324-41a5-b96e-392f4629e652"
+      }
+    },
+    "owner": "citlaliac"
   },
   "name": "coin-boys"
 }
