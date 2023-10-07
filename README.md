@@ -23,3 +23,20 @@ __________________________
 ### What tools went into making this amazing app?
 Typescript, React Native, Expo, CSS, and yarn to hold it all together (at least I hope--I'm still writing it but this is my goal).
 
+### It's not in the App or Play store... How do I try it? 
+
+Alright here we go! This is all going to be for Apple iOS simulator this time around, but expect Android in a future release. Coin boys aren't just Apple users and we want to serve as many coiners as we can.
+
+Begin by dowloading the project locally.
+
+Get iOS Simulator
+1. Download Xcode from the app store, include the iOS package.
+2. Open Xcode > Settings > Locations > Install "Command Line Tools".
+
+Open the project
+1. In the IDE of your choice, open the project (so you can play arund and change things-- this step is optional).
+2. In the CLI navigate into the project.
+Run it
+1. In the command line run `npx expo start`.
+2. Press `i` from the command line.
+    /[These docs](https://docs.expo.dev/workflow/ios-simulator/) are great for trouble shooting./
