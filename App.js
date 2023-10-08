@@ -11,15 +11,7 @@ const pressedCount = 0;
   return (
     <View style={styles.container}>
       <CoinDisplay/>
-      <Text >Hewwo Wowd</Text>
       <StatusBar style="auto" />
-
-      <Button
-      title='Test'
-      onPress={() => Alert.alert('Simple Button pressed')}
-      />
-      <CountMeButton/>
-
     </View>
   );
 }
@@ -27,13 +19,9 @@ const pressedCount = 0;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'whiet',
+    backgroundColor: 'black',
     alignItems: 'center',
     justifyContent: 'center',
   },
-
-  text: {
-    color: 'green'
-  }
 });
 

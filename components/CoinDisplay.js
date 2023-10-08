@@ -24,7 +24,8 @@ const tailsCoin = require('../assets/coin-tails.png');
 function CoinFlipper() {
     let coinType;
     const randomNumber = Math.random();
-    if ((randomNumber*100)%2 == 0){
+
+    if (randomNumber > .5) {
         coinType = headsCoin
     } else {
         coinType = tailsCoin
@@ -34,12 +35,16 @@ function CoinFlipper() {
 }
 
 const CoinDisplay = () => {
-   return (
+    return (
         <View>
-           {/* <Text>Coin Display</Text> */}
-           <Image source={ CoinFlipper() } style={{ height: 100, width: 100 }}/>
-       </View>
-   );
+            <Image source={CoinFlipper()} style={{ height: 220, width: 225 }} />
+            <View>
+                    <Button
+                      onPress={() => { <Image source={CoinFlipper()} style={{ height: 220, width: 225 }} />}} title="Coin Me"
+                    />
+                </View>
+        </View>
+    );
 }
 export default CoinDisplay;
 

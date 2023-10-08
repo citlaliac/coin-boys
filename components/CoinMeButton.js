@@ -6,10 +6,7 @@ const CountMeButton = () => {
    return (
         <View>
            <Button
-             onPress={() => {setCount(count + 1)}} title="Click Me"
-           />
-           <Button
-             onPress={() => {setCount(0)}} title="Reset"
+             onPress={() => {}} title="Coin Me"
            />
            <Text>You clicked me {count} times</Text>
        </View>
