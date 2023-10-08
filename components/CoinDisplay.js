@@ -13,12 +13,6 @@ import { View, Text, Button, Image } from 'react-native';
 const headsCoin = require('../assets/coin-heads.png');
 const tailsCoin = require('../assets/coin-tails.png');
 
-//Images
-// const CoinType {
-//     HEADSCOIN: headsCoin,
-//     TAILSCOIN: tailsCoin, 
-// }
-
 
 //functions
 function CoinFlipper() {
@@ -34,13 +28,17 @@ function CoinFlipper() {
     return coinType;
 }
 
-const CoinDisplay = () => {
+CoinFlipper();
+
+const CoinDisplay = (props) => {
+    const [pressedCount, setPressedCount] = useState(0);
     return (
         <View>
-            <Image source={CoinFlipper()} style={{ height: 220, width: 225 }} />
+            {/* <Image source={CoinFlipper()} style={{ height: 220, width: 225 }} /> */}
+            <Image source={props.source} style={{ height: 220, width: 225 }} />
             <View>
                     <Button
-                      onPress={() => { <Image source={CoinFlipper()} style={{ height: 220, width: 225 }} />}} title="Coin Me"
+                      onPress={() => {}} title="Coin Me"
                     />
                 </View>
         </View>

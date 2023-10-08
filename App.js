@@ -1,21 +1,62 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { Button, StyleSheet, Text, View, Alert, Image } from 'react-native';
-import CountMeButton from './components/CountMeButton';
-import CoinDisplay from './components/CoinDisplay';
+import React, { useState } from 'react';
+import { Button, StyleSheet, View, Image } from 'react-native';
+
 
 
 export default function App() {
-const pressedCount = 0;
+
+  //images
+  const headsCoin = require('./assets/coin-heads.png');
+  const tailsCoin = require('./assets/coin-tails.png');
+  const sideCoin = require('./assets/coin-side.png');
+
+  // set state
+  const [coinType, setCoinType] = useState('');
+
 
   return (
     <View style={styles.container}>
-      <CoinDisplay/>
       <StatusBar style="auto" />
+      <CoinImage 
+        coinType={coinType == '' ? sideCoin : coinType} />
+      <CoinMeButton
+        title={'Coin me'}
+        onPress={() => setCoinType(Math.random() > .5 ? headsCoin : tailsCoin)}
+      />
+
     </View>
   );
 }
 
+//Components
+export const CoinImage = (props) => {
+  const {coinType} = props;
+  return (
+    <View>
+      <Image
+        source={coinType}
+        style={{ height: 220, width: 225 }} />
+    </View>
+  );
+}
+
+export const CoinMeButton = (props) => {
+  const { title, onPress } = props;
+  return (
+    <View>
+      <Button
+        title={title}
+        onPress={onPress}
+        color='green'
+      />
+    </View>
+  );
+}
+
+
+
+//Styles
 const styles = StyleSheet.create({
   container: {
     flex: 1,
