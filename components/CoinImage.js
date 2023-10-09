@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
-import { View, Text, Image } from 'react-native';
+import React from 'react';
+import { View, Image } from 'react-native';
 
-export const CoinImage = (props) => {
-    const [count, setCount] = useState(0);
-   return (
-        <View>
-            <Image source={props.source} style={{ height: 220, width: 225 }}/>
-       </View>
-   );
+// An Image to display the coin face 
+
+const CoinImage = (props) => {
+    const {coinType} = props;
+    return (
+      <View>
+        <Image
+          source={coinType}
+          style={{ height: 220, width: 225 }} />
+      </View>
+    );
 }
-//export const CoinImage;
+export default CoinImage;
+

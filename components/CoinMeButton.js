@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
-import { View, Text, Button } from 'react-native';
+import React from 'react';
+import { View, Button } from 'react-native';
 
-const CountMeButton = () => {
-    const [count, setCount] = useState(0);
-   return (
-        <View>
-           <Button
-             onPress={() => {}} title="Coin Me"
-           />
-           <Text>You clicked me {count} times</Text>
-       </View>
-   );
+// A button that will change the coin face in CoinImage
+
+const CoinMeButton = (props) => {
+  const { title, onPress, style } = props;
+  return (
+    <View>
+      <Button
+        title={title}
+        onPress={onPress}
+        //style={style}
+      />
+    </View>
+  );
 }
-export default CountMeButton;
+export default CoinMeButton;
