@@ -21,7 +21,7 @@ __________________________
 ## Technical Stuff
 
 ### What tools went into making this amazing app?
-Typescript, React Native, Expo, CSS, and yarn to hold it all together (at least I hope--I'm still writing it but this is my goal).
+Typescript, React Native, Expo, CSS, Jest tests and yarn to hold it all together (at least I hope--I'm still writing it but this is my goal).
 
 ### It's not in the App or Play store... How do I try it? 
 
@@ -35,8 +35,13 @@ Get iOS Simulator
 
 Open the project
 1. In the IDE of your choice, open the project (so you can play arund and change things-- this step is optional).
-2. In the CLI navigate into the project.
+
+Get Expo CLI Tools
+1. Navigate into the coin-boys project in the cmd line
+2. Run `npx expo` to install the CLI tools
+3. Run `yarn add expo` 
+
 Run it
 1. In the command line run `npx expo start`.
-2. Press `i` from the command line.
+2. Press `i` from the command line to start an iOS simulator, or scan the QR code to open on your device in the [Expo Go](https://expo.dev/client) app.
     (*[These docs](https://docs.expo.dev/workflow/ios-simulator/) are great for trouble shooting.*)
