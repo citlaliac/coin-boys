@@ -1,7 +1,5 @@
 import React from 'react';
-import { View, Text, Button, TouchableOpacity } from 'react-native';
-
-
+import { View, Text, TouchableOpacity } from 'react-native';
 
 // A button that will change the coin face in CoinImage
 

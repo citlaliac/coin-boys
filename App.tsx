@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import CoinMeButton from './components/CoinMeButton';
 import CoinImage from './components/CoinImage';
 import styles from './styles/Styles';
@@ -10,7 +10,7 @@ import CoinType from './assets/CoinTypes';
 export default function App() {
 
   // set state
-  const [coinType, setCoinType] = useState(CoinType.freshCoin);
+  const [coinType, setCoinType] = useState(CoinType.freshCoin || '');
   console.log(coinType); //todo remove
   return (
     <View style={styles.container}>
