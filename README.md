@@ -10,7 +10,7 @@ Inspired by [this reddit post](https://www.reddit.com/r/Teachers/comments/15c3yd
 It flips coins, duh. So you can live you coiney life. You have a question: Which path do I take? Which job do I accept? Do I get the Bee's or Chili's? Let the coin guide you. It's like the [Magic Conch](https://spongebob.fandom.com/wiki/Magic_Conch_shell), but real.
 
 ### Who can use it?
-Coin boys is an app for anyone looking to live the coin boys /lifestyle/. This is not about your gender, it's about your LIFE.
+Coin boys is an app for anyone looking to live the coin boys *lifestyle*. This is not about your gender, it's about your LIFE.
 
 ### Okay I'm in, what's the mantra?
 Simple, "I live by the coin and die by the coin."
@@ -39,4 +39,4 @@ Open the project
 Run it
 1. In the command line run `npx expo start`.
 2. Press `i` from the command line.
-    /[These docs](https://docs.expo.dev/workflow/ios-simulator/) are great for trouble shooting./
+    (*[These docs](https://docs.expo.dev/workflow/ios-simulator/) are great for trouble shooting.*)
