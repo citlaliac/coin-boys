@@ -1,4 +1,5 @@
 # coin-boys
+## Tell me more
 
 ### What is it?
 Coin Boys - coin flipping app to change your life. Coin is life.
@@ -45,3 +46,14 @@ Run it
 1. In the command line run `npx expo start`.
 2. Press `i` from the command line to start an iOS simulator, or scan the QR code to open on your device in the [Expo Go](https://expo.dev/client) app.
     (*[These docs](https://docs.expo.dev/workflow/ios-simulator/) are great for trouble shooting.*)
+
+## And how... praytell, did you come up with this amazing and complex UI?
+I wire framed it of course! And got my ideas out on to paper. From there I braiinstormed what I'd like the app to do and turned those into features. For quick learning and efficiency I witled down those features to the MVP items, and have ticketed those out and been working through them.
+
+## Show me that wire frame, please! I'm sure you are a great artist and really good at drawing quarters!!
+Here's a little snapshot of one of my notebook pages:
+![IMG_9740](https://github.com/citlaliac/coin-boys/assets/15990110/318b641a-6741-46fe-a834-6862f8358c88)
+
+## Wow you really captured Washington's likeness, can you show me the UI now? So I don't have to setup your silly app? 
+Okay fine... heres a screen shot, just try to keep your socks from being knocked clean off.
+![IMG_96B67C2B9B68-1](https://github.com/citlaliac/coin-boys/assets/15990110/1a4ce7d0-1491-4b1b-bde3-23bfc47d6f7b)
