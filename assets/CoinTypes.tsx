@@ -7,13 +7,4 @@ enum CoinType {
     freshCoin = require('./coinPngs/coin-side.png')
 }
 
-// Images
-// enum CoinType {
-//     headsCoin = ('./assets/coin-heads.png'),
-//     tailsCoin = ('./assets/coin-tails.png'),
-//     headSideCoin = ('./assets/coin-head-side.png'),
-//     tailsSideCoin = ('./assets/coin-tails-side.png'),
-//     freshCoin = ('./assets/coin-side.png')
-// }
-
 export default CoinType;
