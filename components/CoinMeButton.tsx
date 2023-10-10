@@ -1,17 +1,19 @@
 import React from 'react';
-import { View, Button } from 'react-native';
+import { View, Text, Button, TouchableOpacity } from 'react-native';
 
 // A button that will change the coin face in CoinImage
 
 const CoinMeButton = (props) => {
   const { title, onPress, style } = props;
   return (
-    <View>
-      <Button
-        title={title}
+    <View style={style[1]}>
+      <TouchableOpacity
         onPress={onPress}
-        //style={style}
-      />
+        style={{}}>
+          <Text 
+          style={style[0]}>
+            {title}</Text>
+      </TouchableOpacity>
     </View>
   );
 }

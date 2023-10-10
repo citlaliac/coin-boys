@@ -9,7 +9,7 @@ const CoinImage = (props) => {
       <View>
         <Image
           source={coinType}
-          style={{ height: 220, width: 225 }} />
+          style={{ height: 220, width: 225, objectFit: 'scale-down' }} />
       </View>
     );
 }

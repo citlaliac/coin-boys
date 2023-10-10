@@ -10,10 +10,16 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    button: {
+    coinMeButtonText: {
         color: 'green',
-        //backgroundColor: 'blue',
-        fontSize: 40,
+        fontSize: 24,
+    },
+    coinMeButtonView: {
+        backgroundColor: '#064600',
+        borderRadius: 50,
+        padding: 8, 
+        paddingHorizontal: 32, 
+        marginTop: 48,
     }
 });
 
