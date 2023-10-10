@@ -20,6 +20,11 @@ const styles = StyleSheet.create({
         padding: 8, 
         paddingHorizontal: 32, 
         marginTop: 48,
+    }, 
+    coinImageImage: {
+        height: 220, 
+        width: 225, 
+        objectFit: 'scale-down',
     }
 });
 

@@ -1,17 +1,19 @@
 import React from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, Animated, } from 'react-native';
 
 // An Image to display the coin face 
 
 const CoinImage = (props) => {
-    const {coinType} = props;
-    return (
-      <View>
-        <Image
-          source={coinType}
-          style={{ height: 220, width: 225, objectFit: 'scale-down' }} />
-      </View>
-    );
+  const { coinType, style } = props;
+  return (
+    <View>
+      <Animated.Image
+        source={coinType}
+        style={[
+          style,
+        ]} />
+    </View>
+  );
 }
 export default CoinImage;
 
