@@ -7,7 +7,7 @@ const CoinImage = (props) => {
   const { coinType, style } = props;
   return (
     <View>
-      <Animated.Image
+      <Image
         source={coinType}
         style={[
           style,

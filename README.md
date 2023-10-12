@@ -58,4 +58,3 @@ Here's a little snapshot of one of my notebook pages:
 Okay fine... here's a screen shot, just try to keep your socks from being knocked clean off.
 <br/>
 <img src="https://github.com/citlaliac/coin-boys/assets/15990110/1a4ce7d0-1491-4b1b-bde3-23bfc47d6f7b" width="250">
-
