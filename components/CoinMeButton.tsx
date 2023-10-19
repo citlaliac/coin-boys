@@ -11,9 +11,9 @@ const CoinMeButton = (props) => {
         onPress={onPress}
         style={{}}
         testID='coin-me-button'>
-          <Text 
+        <Text
           style={style[0]}>
-            {title}</Text>
+          {title}</Text>
       </TouchableOpacity>
     </View>
   );

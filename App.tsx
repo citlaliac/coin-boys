@@ -21,7 +21,7 @@ export default function App() {
       />
       <CoinMeButton
         title={'Coin me'}
-        onPress={() => {setCoinType(coinFlipper())}}
+        onPress={() => { setCoinType(coinFlipper()) }}
         style={[styles.coinMeButtonText, styles.coinMeButtonView]}
       />
 
