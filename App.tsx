@@ -9,9 +9,9 @@ import CoinType from './assets/CoinTypes';
 
 export default function App() {
 
-  // set state
+  // Set state
   const [coinType, setCoinType] = useState(CoinType.freshCoin || '');
-  console.log(coinType); //todo remove
+  console.log(coinType); // TODO remove
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />

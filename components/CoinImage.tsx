@@ -11,7 +11,9 @@ const CoinImage = (props) => {
         source={coinType}
         style={[
           style,
-        ]} />
+        ]}
+        testID='coin-image'
+      />
     </View>
   );
 }
