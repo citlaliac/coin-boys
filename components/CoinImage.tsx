@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, Animated, } from 'react-native';
+import { View, Image, Animated, } from 'react-native'; // TODO add animatin or remove 'Animated'
 
 // An Image to display the coin face 
 

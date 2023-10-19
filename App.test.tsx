@@ -24,8 +24,10 @@ describe('App', () => {
 
     // Now, you can assert that the coinType has changed, but the exact value will depend on your `coinFlipper` function.
     // For example, if your `coinFlipper` function returns 'heads' or 'tails'.
-    // TODO Find a way to inicate the coin has changed (probably that it spins) and verify that happens, then that coin-image is there.
     const coinImage = getByTestId('coin-image'); // Adjust this selector based on your actual content
     expect(coinImage).toBeTruthy();
   });
+
+    // TODO Find a way to inicate the coin has changed (probably that it spins) and verify that happens, then that coin-image is there.
+
 });
