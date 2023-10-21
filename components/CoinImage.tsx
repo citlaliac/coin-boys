@@ -1,16 +1,17 @@
 import React from 'react';
-import { View, Image, Animated, } from 'react-native'; // TODO add animatin or remove 'Animated'
+import { View, Animated } from 'react-native';
+
 
 // An Image to display the coin face 
 
 const CoinImage = (props) => {
-  const { coinType, style } = props;
+  const { coinType, style, isSpinning } = props;
   return (
     <View>
-      <Image
+      <Animated.Image
         source={coinType}
         style={[
-          style,
+          style 
         ]}
         testID='coin-image'
       />
