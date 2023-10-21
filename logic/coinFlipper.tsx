@@ -17,6 +17,4 @@ function coinFlipper(): CoinType {
     };
 }
 
-//add test to verify each goes to correct enum when given number (to ensure the logic isn't changed accidenatly)
-
 export default coinFlipper;
