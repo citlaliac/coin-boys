@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react-native';
+import { render, fireEvent, waitFor } from '@testing-library/react-native';
 import App from './App';
 
 describe('App', () => {
@@ -28,6 +28,28 @@ describe('App', () => {
     expect(coinImage).toBeTruthy();
   });
 
-  // TODO Find a way to inicate the coin has changed (probably that it spins) and verify that happens, then that coin-image is there.
+
+  it('rotates the coin image when "Coin me" button is pressed', async () => {
+    const { getByTestId } = render(<App />);
+
+    // Ensures buttons and image are there to test
+    const coinMeButton = getByTestId('coin-me-button');
+    const coinImage = getByTestId('coin-image');
+
+    // Get the initial style of the coin image
+    const initialStyle = coinImage.props.style;
+
+    // Simulate a button click to trigger the rotation
+    fireEvent.press(coinMeButton);
+
+    await waitFor(() => {
+      // Get the final style of the coin image after animation
+      const finalStyle = coinImage.props.style;
+      // Expect that the transform property has changed in the final style
+      expect(finalStyle.transform).not.toEqual(initialStyle.transform);
+    });
+  });
+
+  // TODO Find a way to test that while isSpinning, the flip is to 180deg, then that coin-image is there.
 
 });
