@@ -1,22 +1,33 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, StyleProp, TextStyle, ViewStyle } from 'react-native';
+
+type CoinMeButtonProps = {
+  title: string;
+  onPress: () => void;
+  style?: [StyleProp<TextStyle>?, StyleProp<ViewStyle>?, StyleProp<ViewStyle>?];
+  disabled?: boolean;
+};
 
 // A button that will change the coin face in CoinImage
 
-const CoinMeButton = (props) => {
+const CoinMeButton = (props: CoinMeButtonProps) => {
   const { title, onPress, style, disabled } = props;
+  const textStyle = style?.[0];
+  const containerStyle = style?.[1];
+  const buttonStyle = style?.[2];
+
   return (
-    <View style={style[1]}>
+    <View style={containerStyle}>
       <TouchableOpacity
         onPress={onPress}
-        disabled={disabled} // TODO is this working? What does disabled TOpcty look like?
-        style={ style[2] }
+        disabled={disabled}
+        style={buttonStyle}
         testID='coin-me-button'>
         <Text
-          style={style[0]}>
+          style={textStyle}>
           {title}</Text>
       </TouchableOpacity>
     </View>
   );
-}
+};
 export default CoinMeButton;

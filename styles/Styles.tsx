@@ -1,7 +1,5 @@
 import React from 'react';
-import { StyleSheet, Animated } from 'react-native';
-
-const rotationValue = new Animated.Value(0);
+import { StyleSheet } from 'react-native';
 
 // Styles
 const styles = StyleSheet.create({
@@ -28,23 +26,17 @@ const styles = StyleSheet.create({
         marginTop: 48,
     },
     coinButtonViewDisabledDuringSpin: {
-        backgroundColor: '#064600',
-        borderRadius: 50,
-        padding: 8,
-        paddingHorizontal: 32,
-        marginTop: 48,
-        enabled: false,
+        opacity: 0.6,
     },
     coinImageImage: {
         height: 220,
         width: 225,
-        objectFit: 'scale-down',
     },
-    coinImageSpinning: {
-        height: 220,
-        width: 225,
-        objectFit: 'scale-down',
-        transform: [{ rotate: '180deg' }],
+    resultText: {
+        color: '#8cff8c',
+        fontSize: 24,
+        fontWeight: '600',
+        marginTop: 20,
     },
 });
 

@@ -10,7 +10,7 @@ test('renders CoinMeButton component with the correct title', () => {
 
     // Render the CoinMeButton component with the provided props
     const { getByText } = render(
-        <CoinMeButton title={title} onPress={onPress} style={[Styles.coinMeButtonText]} />
+        <CoinMeButton title={title} onPress={onPress} style={[Styles.coinMeButtonText, Styles.coinMeButtonView]} />
     );
 
     // Verify that the button with the correct title is present
@@ -23,7 +23,7 @@ test('calls the onPress function when the button is pressed', () => {
     const onPress = jest.fn(); // Mock the onPress function
 
     const { getByTestId } = render(
-        <CoinMeButton title={title} onPress={onPress} style={[[Styles.coinMeButtonText]]} />
+        <CoinMeButton title={title} onPress={onPress} style={[Styles.coinMeButtonText, Styles.coinMeButtonView]} />
     );
 
     // Simulate a button press

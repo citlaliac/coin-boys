@@ -1,55 +1,59 @@
 import React from 'react';
-import { render, fireEvent, waitFor } from '@testing-library/react-native';
+import { render, fireEvent, act } from '@testing-library/react-native';
+import { Animated } from 'react-native';
 import App from './App';
 
 describe('App', () => {
+  beforeEach(() => {
+    jest.spyOn(Animated, 'timing').mockImplementation(() =>
+      ({
+        start: (callback?: (result: { finished: boolean }) => void) => {
+          callback?.({ finished: true });
+        },
+        stop: jest.fn(),
+        reset: jest.fn(),
+      }) as unknown as Animated.CompositeAnimation,
+    );
+  });
+
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+
   it('renders the initial state of the App component', () => {
     const { getByText, getByTestId } = render(<App />);
 
-    // Verify that the "Coin me" button is present
     const coinMeButton = getByText('Coin me');
     expect(coinMeButton).toBeTruthy();
 
-    // Verify that the default coin image is present
-    const coinImage = getByTestId('coin-image'); // Adjust this selector based on your actual content
+    const coinImage = getByTestId('coin-image');
     expect(coinImage).toBeTruthy();
   });
 
-  it('updates the coinType state when the "Coin me" button is clicked', () => {
+  it('shows result text after the "Coin me" button is clicked', () => {
     const { getByText, getByTestId } = render(<App />);
     const coinMeButton = getByText('Coin me');
 
-    // Simulate a button click to change the coinType
-    fireEvent.press(coinMeButton);
+    expect(getByTestId('coin-result-text').props.children).toBe('Tap the coin or button to flip');
 
-    // Now, you can assert that the coinType has changed, but the exact value will depend on your `coinFlipper` function.
-    // For example, if your `coinFlipper` function returns 'heads' or 'tails'.
-    const coinImage = getByTestId('coin-image'); // Adjust this selector based on your actual content
-    expect(coinImage).toBeTruthy();
+    act(() => {
+      fireEvent.press(coinMeButton);
+    });
+
+    const text = getByTestId('coin-result-text').props.children;
+    expect(['Heads', 'Tails', 'Edge hit! Flip again']).toContain(text);
   });
 
-
-  it('rotates the coin image when "Coin me" button is pressed', async () => {
+  it('allows tapping the coin image to trigger a flip', () => {
     const { getByTestId } = render(<App />);
 
-    // Ensures buttons and image are there to test
-    const coinMeButton = getByTestId('coin-me-button');
-    const coinImage = getByTestId('coin-image');
+    const coinPressable = getByTestId('coin-image-pressable');
 
-    // Get the initial style of the coin image
-    const initialStyle = coinImage.props.style;
-
-    // Simulate a button click to trigger the rotation
-    fireEvent.press(coinMeButton);
-
-    await waitFor(() => {
-      // Get the final style of the coin image after animation
-      const finalStyle = coinImage.props.style;
-      // Expect that the transform property has changed in the final style
-      expect(finalStyle.transform).not.toEqual(initialStyle.transform);
+    act(() => {
+      fireEvent.press(coinPressable);
     });
+
+    const text = getByTestId('coin-result-text').props.children;
+    expect(['Heads', 'Tails', 'Edge hit! Flip again']).toContain(text);
   });
-
-  // TODO Find a way to test that while isSpinning, the flip is to 180deg, then that coin-image is there.
-
 });

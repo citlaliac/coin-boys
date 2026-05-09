@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react-native';
+import { render, fireEvent } from '@testing-library/react-native';
 import CoinImage from './CoinImage'; // Import your CoinImage component
 
 // Tests for CoinImage component
@@ -12,4 +12,14 @@ test('renders CoinImage component', () => {
 
   // Check if the CoinImage component is present
   expect(coinImage).toBeTruthy();
+});
+
+test('calls onPress when coin is tapped', () => {
+  const coinType = require('../assets/coinPngs/coin-heads.png');
+  const onPress = jest.fn();
+  const { getByTestId } = render(<CoinImage coinType={coinType} onPress={onPress} disabled={false} />);
+
+  fireEvent.press(getByTestId('coin-image-pressable'));
+
+  expect(onPress).toHaveBeenCalled();
 });

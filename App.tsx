@@ -1,79 +1,77 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import { View, Animated } from 'react-native';
+import React, { useRef, useState } from 'react';
+import { View, Text, Animated, Easing } from 'react-native';
 import CoinMeButton from './components/CoinMeButton';
 import CoinImage from './components/CoinImage';
 import styles from './styles/Styles';
 import coinFlipper from './logic/coinFlipper';
 import CoinType from './assets/CoinTypes';
-//import coinFlipAndSet from './logic/coinFlipAndSet';
+
+/** Match Jest fake timers to `Animated.timing` duration below */
+export const COIN_FLIP_DURATION_MS = 880;
 
 export default function App() {
-
-  // Set state
   const [coinType, setCoinType] = useState(CoinType.freshCoin || '');
   const [isSpinning, setIsSpinning] = useState(false);
-  const rotationValue = new Animated.Value(0);
+  const [resultText, setResultText] = useState('Tap the coin or button to flip');
+  const spinProgress = useRef(new Animated.Value(0)).current;
 
-  const coinFlipAndSet = () => {
-    setIsSpinning(true);
-    setTimeout(() => {
-      setIsSpinning(false);
-      setCoinType(coinFlipper());
-    }, 250);
+  const getCoinResultText = (nextCoinType: CoinType) => {
+    if (nextCoinType === CoinType.headsCoin) {
+      return 'Heads';
+    }
+    if (nextCoinType === CoinType.tailsCoin) {
+      return 'Tails';
+    }
+    return 'Edge hit! Flip again';
   };
 
-  console.log("cointype: ", coinType); // TODO remove
+  const coinFlipAndSet = () => {
+    if (isSpinning) {
+      return;
+    }
+
+    setIsSpinning(true);
+    setResultText('Flipping...');
+
+    spinProgress.setValue(0);
+    Animated.timing(spinProgress, {
+      toValue: 1,
+      duration: COIN_FLIP_DURATION_MS,
+      easing: Easing.out(Easing.cubic),
+      useNativeDriver: true,
+    }).start(({ finished }) => {
+      if (!finished) {
+        return;
+      }
+      const nextCoinType = coinFlipper();
+      setCoinType(nextCoinType);
+      setResultText(getCoinResultText(nextCoinType));
+      setIsSpinning(false);
+      spinProgress.setValue(0);
+    });
+  };
+
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
       <CoinImage
         coinType={coinType == null ? CoinType.freshCoin : coinType}
-        style={[ isSpinning && styles.coinImageSpinning
-        || styles.coinImageImage, 
-        ]}
-          
+        spinProgress={spinProgress}
+        onPress={coinFlipAndSet}
+        disabled={isSpinning}
       />
+      <Text style={styles.resultText} testID='coin-result-text'>{resultText}</Text>
       <CoinMeButton
         title={'Coin me'}
-        onPress={() => { coinFlipAndSet(); }}
+        onPress={coinFlipAndSet}
         disabled={isSpinning}
-        // TODO clean up button disabled
-        // maybe access these not via their indeces
-        style={[isSpinning && styles.coinButtonTextWhileSpinning || styles.coinMeButtonText, isSpinning && styles.coinButtonViewDisabledDuringSpin || styles.coinMeButtonView]}
+        style={[
+          isSpinning ? styles.coinButtonTextWhileSpinning : styles.coinMeButtonText,
+          styles.coinMeButtonView,
+          isSpinning ? styles.coinButtonViewDisabledDuringSpin : undefined,
+        ]}
       />
-
     </View>
   );
 }
-
-
-  // TODO not quite spinning the coin, leaving to investigate at a later time, 
-  // the above does get a single "flip"
-  // const coinFlipAndSet = () => {
-  //   setIsSpinning(true);
-  //   Animated.timing(rotationValue, {
-  //     toValue: 180, // The value you want to rotate to (360 degrees for a full rotation)
-  //     duration: 500, // Animation duration in milliseconds
-  //     useNativeDriver: false, // Set to true if possible to improve performance
-  //   }).start(() => {
-  //     // Perform any other logic after the spin completes
-  //     setIsSpinning(false);
-  //     setCoinType(coinFlipper());
-  //   });
-  // };
-
-
-  // Keeping in conjunction with alternate coinFlipAndSet function to use in CoinImage styles
-  // {
-  // height: 220,
-  // width: 225,
-  // objectFit: 'scale-down',
-  // transform: [{ rotate: '180deg' }],
-  // transform: [{
-  //   rotate: rotationValue.interpolate({
-  //     inputRange: [0, 180],
-  //     outputRange: ['0deg', '180deg'],
-  //   })
-  // }]
-  // } 

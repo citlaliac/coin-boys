@@ -14,6 +14,7 @@ function coinFlipper(): CoinType {
         return CoinType.tailsSideCoin;
     } else {
         console.error('randomNumber value in coinFlipper was not set or value did not match any posible outcomes. Output of randomNumber: ' + randomNumber);
+        return CoinType.freshCoin;
     };
 }
 

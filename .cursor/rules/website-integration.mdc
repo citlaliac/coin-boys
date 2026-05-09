@@ -1,0 +1,11 @@
+---
+description: How to combine coin-boys with a separate website repo in Cursor and ship the web build
+alwaysApply: false
+---
+
+# Website repo + Coin Boys
+
+- Prefer a **multi-root workspace**: add both this repo (`coin-boys`) and your **website** repository via **File → Add Folder to Workspace**.
+- Static web output lives in **`dist/`** after `npm run build:web`. Integrate by uploading `dist/`, using a subpath (may need Expo `baseUrl` for that path), or linking/iframe per [docs/WEBSITE_INTEGRATION.md](docs/WEBSITE_INTEGRATION.md).
+- **GitHub Actions** for your public site are configured in the **website** repo’s `.github/workflows/`, not in coin-boys. See [docs/WEBSITE_CI_CHECKLIST.md](docs/WEBSITE_CI_CHECKLIST.md).
+- When the user asks about “posting” or deploy, distinguish **Expo Go / local Metro** (dev) from **uploading `dist/`** (production static files).
